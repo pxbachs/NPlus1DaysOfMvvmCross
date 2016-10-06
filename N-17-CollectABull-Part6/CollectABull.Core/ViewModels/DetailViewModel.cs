@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
-using Cirrious.MvvmCross.ViewModels;
 using CollectABull.Core.Services.Collections;
 using CollectABull.Core.Services.DataStore;
+using MvvmCross.Core.ViewModels;
 
 namespace CollectABull.Core.ViewModels
 {

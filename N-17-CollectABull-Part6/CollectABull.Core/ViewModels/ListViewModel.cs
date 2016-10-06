@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
-using Cirrious.MvvmCross.Plugins.Messenger;
-using Cirrious.MvvmCross.ViewModels;
+using MvvmCross.Plugins.Messenger;
 using CollectABull.Core.Services.Collections;
 using CollectABull.Core.Services.DataStore;
+using MvvmCross.Core.ViewModels;
 
 namespace CollectABull.Core.ViewModels
 {

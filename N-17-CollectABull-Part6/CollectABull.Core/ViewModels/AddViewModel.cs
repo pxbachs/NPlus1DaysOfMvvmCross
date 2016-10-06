@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
-using Cirrious.MvvmCross.Plugins.File;
-using Cirrious.MvvmCross.Plugins.Messenger;
-using Cirrious.MvvmCross.Plugins.PictureChooser;
-using Cirrious.MvvmCross.ViewModels;
+using MvvmCross.Plugins.File;
+using MvvmCross.Plugins.Messenger;
+using MvvmCross.Plugins.PictureChooser;
 using CollectABull.Core.Services.Collections;
 using CollectABull.Core.Services.DataStore;
 using CollectABull.Core.Services.Location;
+using MvvmCross.Core.ViewModels;
 
 namespace CollectABull.Core.ViewModels
 {
@@ -86,12 +86,12 @@ namespace CollectABull.Core.ViewModels
             set { _longitude = value; RaisePropertyChanged(() => Longitude); }
         }
 
-        private Cirrious.MvvmCross.ViewModels.MvxCommand _addPictureCommand;
+        private MvxCommand _addPictureCommand;
         public System.Windows.Input.ICommand AddPictureCommand
         {
             get
             {
-                _addPictureCommand = _addPictureCommand ?? new Cirrious.MvvmCross.ViewModels.MvxCommand(DoAddPicture);
+                _addPictureCommand = _addPictureCommand ?? new MvxCommand(DoAddPicture);
                 return _addPictureCommand;
             }
         }
@@ -118,12 +118,12 @@ namespace CollectABull.Core.ViewModels
             set { _pictureBytes = value; RaisePropertyChanged(() => PictureBytes); }
         }
         
-        private Cirrious.MvvmCross.ViewModels.MvxCommand _saveCommand;
+        private MvxCommand _saveCommand;
         public System.Windows.Input.ICommand SaveCommand
         {
             get
             {
-                _saveCommand = _saveCommand ?? new Cirrious.MvvmCross.ViewModels.MvxCommand(DoSave);
+                _saveCommand = _saveCommand ?? new MvxCommand(DoSave);
                 return _saveCommand;
             }
         }

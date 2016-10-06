@@ -1,7 +1,7 @@
-using Cirrious.MvvmCross.Plugins.Messenger;
-using Cirrious.MvvmCross.ViewModels;
 using CollectABull.Core.Services.Collections;
 using CollectABull.Core.Services.DataStore;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 
 namespace CollectABull.Core.ViewModels
 {
@@ -35,12 +35,12 @@ namespace CollectABull.Core.ViewModels
             set { _latest = value; RaisePropertyChanged(() => Latest); }
         }
 
-        private Cirrious.MvvmCross.ViewModels.MvxCommand _addCommnad;
+        private MvxCommand _addCommnad;
         public System.Windows.Input.ICommand AddCommand
         {
             get
             {
-                _addCommnad = _addCommnad ?? new Cirrious.MvvmCross.ViewModels.MvxCommand(DoAdd);
+                _addCommnad = _addCommnad ?? new MvxCommand(DoAdd);
                 return _addCommnad;
             }
         }
@@ -50,13 +50,13 @@ namespace CollectABull.Core.ViewModels
             ShowViewModel<AddViewModel>();
         }
 
-        private Cirrious.MvvmCross.ViewModels.MvxCommand _listCommand;
+        private MvxCommand _listCommand;
 
         public System.Windows.Input.ICommand ListCommand
         {
             get
             {
-                _listCommand = _listCommand ?? new Cirrious.MvvmCross.ViewModels.MvxCommand(DoList);
+                _listCommand = _listCommand ?? new MvxCommand(DoList);
                 return _listCommand;
             }
         }

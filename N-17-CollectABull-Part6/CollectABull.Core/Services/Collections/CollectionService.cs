@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cirrious.MvvmCross.Plugins.Messenger;
 using CollectABull.Core.Services.DataStore;
+using MvvmCross.Plugins.Messenger;
 
 namespace CollectABull.Core.Services.Collections
 {

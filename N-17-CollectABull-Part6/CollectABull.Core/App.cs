@@ -1,9 +1,13 @@
-using Cirrious.CrossCore;
-using Cirrious.CrossCore.IoC;
+
+
+using CollectABull.Core.Services.Collections;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform;
+using MvvmCross.Platform.IoC;
 
 namespace CollectABull.Core
 {
-    public class App : Cirrious.MvvmCross.ViewModels.MvxApplication
+    public class App : MvxApplication
     {
         public override void Initialize()
         {
@@ -16,7 +20,7 @@ namespace CollectABull.Core
                 .EndingWith("Service")
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
-				
+
             RegisterAppStart<ViewModels.HomeViewModel>();
         }
     }

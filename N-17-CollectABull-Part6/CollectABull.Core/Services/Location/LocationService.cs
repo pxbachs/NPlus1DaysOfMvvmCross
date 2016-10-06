@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cirrious.CrossCore;
-using Cirrious.MvvmCross.Plugins.Location;
-using Cirrious.MvvmCross.Plugins.Messenger;
+using MvvmCross.Platform;
+using MvvmCross.Plugins.Location;
+using MvvmCross.Plugins.Messenger;
 
 namespace CollectABull.Core.Services.Location
 {
     public class LocationService : ILocationService
     {
-        private readonly IMvxGeoLocationWatcher _watcher;
+        private readonly IMvxLocationWatcher _watcher;
         private readonly IMvxMessenger _messenger;
 
-        public LocationService(IMvxGeoLocationWatcher watcher, IMvxMessenger messenger)
+        public LocationService(IMvxLocationWatcher watcher, IMvxMessenger messenger)
         {
             _messenger = messenger;
 
             _watcher = watcher;
-            _watcher.Start(new MvxGeoLocationOptions(), OnSuccess, OnError);
+            _watcher.Start(new MvxLocationOptions(), OnSuccess, OnError);
         }
 
         private readonly object _lockObject  = new object();
