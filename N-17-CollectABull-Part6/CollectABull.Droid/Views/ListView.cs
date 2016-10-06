@@ -1,7 +1,7 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using Cirrious.MvvmCross.Droid.Views;
+using MvvmCross.Droid.Views;
 
 namespace CollectABull.Droid.Views
 {

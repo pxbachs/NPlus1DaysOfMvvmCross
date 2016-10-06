@@ -1,6 +1,8 @@
 using Android.Content;
-using Cirrious.MvvmCross.Droid.Platform;
-using Cirrious.MvvmCross.ViewModels;
+using MvvmCross.Droid.Platform;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Platform;
+using System.IO;
 
 namespace CollectABull.Droid
 {
@@ -8,6 +10,26 @@ namespace CollectABull.Droid
     {
         public Setup(Context applicationContext) : base(applicationContext)
         {
+			var path = System.Environment.GetFolderPath(
+						System.Environment.SpecialFolder.Personal);
+			var dbfile = "mydb.sqlite";
+
+			var dbpath = Path.Combine(path, dbfile);
+
+			System.Diagnostics.Debug.WriteLine("DB path = " + dbpath);
+
+			//TODO: create if not exist
+			if (!File.Exists(dbpath))
+			{
+				//copy file db from resource
+				System.Diagnostics.Debug.WriteLine("DB path = " + dbpath + " exist!");
+				//testing
+				File.Delete(dbpath);
+			}
+			else {
+
+
+			}
         }
 
         protected override IMvxApplication CreateApp()
@@ -15,14 +37,10 @@ namespace CollectABull.Droid
             return new Core.App();
         }
 
-        protected override System.Collections.Generic.List<System.Reflection.Assembly> ValueConverterAssemblies
+        protected override IMvxTrace CreateDebugTrace()
         {
-            get
-            {
-                var toReturn = base.ValueConverterAssemblies;
-                toReturn.Add(typeof(Cirrious.MvvmCross.Plugins.PictureChooser.Droid.MvxInMemoryImageValueConverter).Assembly);
-                return toReturn;
-            }
+            return new DebugTrace();
         }
+
     }
 }

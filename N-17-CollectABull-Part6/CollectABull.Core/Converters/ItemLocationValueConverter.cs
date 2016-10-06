@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
-using Cirrious.CrossCore.Converters;
 using CollectABull.Core.Services.DataStore;
+using MvvmCross.Platform.Converters;
 
 namespace CollectABull.Core.Converters
 {

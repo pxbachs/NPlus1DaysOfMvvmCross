@@ -1,6 +1,7 @@
 using Android.Content;
-using Cirrious.MvvmCross.Droid.Platform;
-using Cirrious.MvvmCross.ViewModels;
+using MvvmCross.Droid.Platform;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Platform;
 
 namespace Value.Droid
 {
@@ -12,7 +13,12 @@ namespace Value.Droid
 
         protected override IMvxApplication CreateApp()
         {
-            return new Value.Core.App();
+            return new Core.App();
+        }
+
+        protected override IMvxTrace CreateDebugTrace()
+        {
+            return new DebugTrace();
         }
     }
 }

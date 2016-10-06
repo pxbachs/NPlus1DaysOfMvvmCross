@@ -2,7 +2,7 @@ using Android.App;
 using Android.OS;
 using MvvmCross.Droid.Views;
 
-namespace Value.Droid.Views
+namespace CollectABull.Droid.Views
 {
     [Activity(Label = "View for FirstViewModel")]
     public class FirstView : MvxActivity

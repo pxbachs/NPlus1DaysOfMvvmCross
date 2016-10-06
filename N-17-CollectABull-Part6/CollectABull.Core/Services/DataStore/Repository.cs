@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cirrious.MvvmCross.Plugins.Sqlite;
+using MvvmCross.Plugins.Sqlite;
+using SQLite;
 
 namespace CollectABull.Core.Services.DataStore
 {
     public class Repository : IRepository
     {
-        private readonly ISQLiteConnection _connection;
+        private readonly SQLiteConnection _connection;
+		private readonly IMvxSqliteConnectionFactory _sqliteConnectionFactory;
 
-        public Repository(ISQLiteConnectionFactory factory)
+        public Repository(IMvxSqliteConnectionFactory sqliteConnectionFactory)
         {
-            _connection = factory.Create("collect.sql");
+			_sqliteConnectionFactory = sqliteConnectionFactory;
+			//_connection = _sqliteConnectionFactory.GetConnection("/data/data/CollectABull.Droid/files/mydb.sqlite");
+            _connection = _sqliteConnectionFactory.GetConnection("/sdcard/Download/collect.sql");//root path of app
+			System.Diagnostics.Debug.WriteLine("Full DB Path: " + _connection.DatabasePath) ;
+			//_connection = factory.Create("collect.sql");
             _connection.CreateTable<CollectedItem>();
         }
 

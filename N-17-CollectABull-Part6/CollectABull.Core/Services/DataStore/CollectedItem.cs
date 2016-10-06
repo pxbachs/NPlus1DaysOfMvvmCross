@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Cirrious.MvvmCross.Plugins.Sqlite;
+using MvvmCross.Plugins.Sqlite;
+using SQLite;
 
 namespace CollectABull.Core.Services.DataStore
 {
