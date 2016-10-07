@@ -1,8 +1,7 @@
 using Android.Content;
-using Cirrious.MvvmCross.Binding.Bindings.Target.Construction;
-using Cirrious.MvvmCross.Droid.Platform;
-using Cirrious.MvvmCross.ViewModels;
-using CustomBinding.Droid.Controls;
+using MvvmCross.Droid.Platform;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Platform.Platform;
 
 namespace CustomBinding.Droid
 {
@@ -17,22 +16,9 @@ namespace CustomBinding.Droid
             return new Core.App();
         }
 
-        protected override void FillTargetFactories(Cirrious.MvvmCross.Binding.Bindings.Target.Construction.IMvxTargetBindingFactoryRegistry registry)
+        protected override IMvxTrace CreateDebugTrace()
         {
-            registry.RegisterCustomBindingFactory<BinaryEdit>(
-                            "N28", 
-                            binary => new BinaryEditFooTargetBinding(binary) );
-            base.FillTargetFactories(registry);
-        }
-
-        protected override System.Collections.Generic.IList<System.Reflection.Assembly> AndroidViewAssemblies
-        {
-            get
-            {
-                var toReturn = base.AndroidViewAssemblies;
-                toReturn.Add(this.GetType().Assembly);
-                return toReturn;
-            }
+            return new DebugTrace();
         }
     }
 }
