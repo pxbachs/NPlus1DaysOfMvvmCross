@@ -16,7 +16,8 @@ namespace CollectABull.Core.Services.DataStore
         {
 			_sqliteConnectionFactory = sqliteConnectionFactory;
 			//_connection = _sqliteConnectionFactory.GetConnection("/data/data/CollectABull.Droid/files/mydb.sqlite");
-            _connection = _sqliteConnectionFactory.GetConnection("/sdcard/Download/collect.sql");//root path of app
+            //_connection = _sqliteConnectionFactory.GetConnection("/sdcard/Download/collect.sql");//root path of app
+            _connection = _sqliteConnectionFactory.GetConnection("collect.sql");//root path of app
 			System.Diagnostics.Debug.WriteLine("Full DB Path: " + _connection.DatabasePath) ;
 			//_connection = factory.Create("collect.sql");
             _connection.CreateTable<CollectedItem>();
